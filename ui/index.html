@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fonter</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <div class="logo">字<i></i></div>
+    <div>
+      <b>Fonter</b>
+      <span id="libStatus">폰트 인덱스 불러오는 중…</span>
+    </div>
+  </div>
+  <div class="actions">
+    <span class="chip" id="extraChip" hidden></span>
+    <button id="addFolder" title="폰트가 든 폴더를 검사 대상에 추가">폴더 추가</button>
+    <button id="addFiles" title="설치하지 않은 폰트 파일을 검사 대상에 추가">폰트 파일 추가</button>
+    <button id="rescan" class="icon" title="캐시를 버리고 전체 다시 스캔">↻</button>
+  </div>
+  <div class="progress" id="progress"><i></i></div>
+</header>
+
+<main>
+  <section class="pane input">
+    <div class="pane-head">
+      <h2>텍스트</h2>
+      <div class="spacer"></div>
+      <button class="ghost" id="sample">예시 넣기</button>
+      <button class="ghost" id="clear">지우기</button>
+    </div>
+    <textarea id="text" spellcheck="false" placeholder="가사나 자막을 여기에 붙여넣으세요.&#10;&#10;.txt · .lrc · .srt · .ass 파일이나 폰트 파일·폴더를 창에 끌어다 놓아도 됩니다."></textarea>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section class="pane results">
+    <div class="pane-head">
+      <div class="tabs" id="tabs">
+        <button data-tab="full" class="on"><i class="dot ok"></i>완벽 지원 <b>0</b></button>
+        <button data-tab="letters"><i class="dot warn"></i>기호만 누락 <b>0</b></button>
+        <button data-tab="partial"><i class="dot bad"></i>글자 누락 <b>0</b></button>
+        <button data-tab="all">전체 <b>0</b></button>
+      </div>
+      <div class="spacer"></div>
+      <span class="timing" id="timing"></span>
+      <input id="search" type="search" placeholder="폰트 이름 검색  Ctrl+F">
+    </div>
+    <div class="list" id="list"><div class="sizer" id="sizer"></div></div>
+    <div class="empty" id="empty" hidden></div>
+
+    <aside class="drawer" id="drawer" hidden>
+      <div class="drawer-head">
+        <div class="d-title">
+          <h3 id="dName"></h3>
+          <div class="d-meta" id="dMeta"></div>
+        </div>
+        <button class="icon" id="dClose" title="닫기 (Esc)">✕</button>
+      </div>
+      <div class="d-styles" id="dStyles"></div>
+      <div class="d-actions">
+        <button id="dCopy">폰트 이름 복사</button>
+        <button id="dReveal">파일 위치 열기</button>
+        <div class="spacer"></div>
+        <label class="size">크기 <input id="dSize" type="range" min="14" max="72" value="26"></label>
+      </div>
+      <div class="verdict" id="dVerdict"></div>
+      <div class="d-missing" id="dMissing"></div>
+      <div class="d-preview" id="dPreview"></div>
+    </aside>
+  </section>
+</main>
+
+<div class="drop" id="drop"><div>여기에 놓기<small>텍스트 파일은 입력창으로, 폰트 파일·폴더는 검사 대상으로</small></div></div>
+<div class="toast" id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>

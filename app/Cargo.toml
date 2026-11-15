@@ -1,0 +1,18 @@
+[package]
+name = "fonter"
+version = "2.0.0"
+edition = "2021"
+description = "Find the fonts that can actually render your text"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+fonter-core = { path = "../core" }
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[features]
+custom-protocol = ["tauri/custom-protocol"]

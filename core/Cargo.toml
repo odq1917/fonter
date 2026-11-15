@@ -1,0 +1,11 @@
+[package]
+name = "fonter-core"
+version = "2.0.0"
+edition = "2021"
+
+[dependencies]
+ttf-parser = "0.25"
+memmap2 = "0.9"
+rayon = "1.10"
+serde = { version = "1", features = ["derive"] }
+bincode = "1.3"
